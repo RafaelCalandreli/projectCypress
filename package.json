@@ -1,0 +1,30 @@
+{
+    "name": "cypress",
+    "version": "1.0.0",
+    "scripts": {
+        "cy:open": "cypress open",
+        "cy:run": "cypress run",
+        "cy:ci:reports": "npm run reports:cleanup && npm run cy:ci; npm run reports:merge && npm run reports:generate",
+        "test:chrome": "cypress run --browser chrome",
+        "combine:report": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
+        "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
+    },
+    "cypress-cucumber-preprocessor": {
+        "step_definitions": "cypress/support/steps"
+    },
+    "devDependencies": {
+        "@types/chai": "4.2.13",
+        "@types/mocha": "8.0.3",
+        "@typescript-eslint/eslint-plugin": "4.4.1",
+        "@typescript-eslint/parser": "4.4.1",
+        "cypress": "^7.0.0",
+        "eslint": "7.11.0",
+        "eslint-config-google": "0.14.0",
+        "eslint-plugin-cypress": "2.11.2",
+        "eslint-plugin-mocha": "8.0.0",
+        "mocha": "8.1.3",
+        "mochawesome": "^6.2.2",
+        "mochawesome-merge": "^4.2.0",
+        "mochawesome-report-generator": "^5.1.0"
+    }
+}
